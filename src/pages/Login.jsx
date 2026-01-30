@@ -19,6 +19,7 @@ function Login() {
   return (
     <div className={styles.authContainer}>
       <div className={styles.authFormContainer}>
+        <h2 style={{color: 'red'}}>Versi Deployment: 2.0</h2>
         <h2 className={styles.title}>Masuk ke Akun Anda</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input
