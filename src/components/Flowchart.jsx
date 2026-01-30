@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import mermaid from 'mermaid';
+import mermaid from 'mermaid/dist/mermaid.min.js';
 
 // Konfigurasi awal untuk Mermaid
 mermaid.initialize({
