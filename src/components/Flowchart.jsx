@@ -16,6 +16,8 @@ const Flowchart = ({ chartDefinition }) => {
     const renderDiagram = async () => {
       if (!chartRef.current) return; // Pastikan ref sudah ada
 
+      console.log("DIAGRAM DEFINITION TO BE RENDERED:", chartDefinition); // LOGGING FOR DEBUGGING
+
       setError(null); // Reset error
       chartRef.current.innerHTML = 'Loading diagram...'; // Tampilkan pesan loading
 
