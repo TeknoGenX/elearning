@@ -19,7 +19,7 @@ import ModuleEditor from './pages/ModuleEditor.jsx'; // Import ModuleEditor
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/elearning/">
       <AuthProvider>
         <ModuleProvider>
           <Routes>
