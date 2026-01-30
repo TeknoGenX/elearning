@@ -21,7 +21,7 @@ import ModuleDetail from './pages/ModuleDetail.jsx';
 import Quiz from './pages/Quiz.jsx';
 import QuizResult from './pages/QuizResult.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
-import ModuleEditor from './pages/ModuleEditor.jsx';
+import Documentation from './pages/Documentation.jsx'; // Import Documentation page
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -47,6 +47,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/module/:moduleId" element={<ProtectedRoute><ModuleDetail /></ProtectedRoute>} />
             <Route path="/quiz/:moduleId" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
             <Route path="/quiz/result" element={<ProtectedRoute><QuizResult /></ProtectedRoute>} />
+            <Route path="/documentation" element={<ProtectedRoute><Documentation /></ProtectedRoute>} />
             
           </Routes>
         </ModuleProvider>
