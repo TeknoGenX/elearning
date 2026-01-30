@@ -20,8 +20,9 @@ import Profile from './pages/Profile.jsx';
 import ModuleDetail from './pages/ModuleDetail.jsx';
 import Quiz from './pages/Quiz.jsx';
 import QuizResult from './pages/QuizResult.jsx';
-import AdminDashboard from './pages/AdminDashboard.jsx';
-import Documentation from './pages/Documentation.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx'; // ADDED
+import ModuleEditor from './pages/ModuleEditor.jsx';
+import Documentation from './pages/Documentation.jsx'; // ADDED
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
