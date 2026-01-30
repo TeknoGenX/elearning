@@ -21,7 +21,7 @@ import ModuleDetail from './pages/ModuleDetail.jsx';
 import Quiz from './pages/Quiz.jsx';
 import QuizResult from './pages/QuizResult.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
-import Documentation from './pages/Documentation.jsx'; // Import Documentation page
+import Documentation from './pages/Documentation.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -37,6 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/create" element={<ModuleEditor />} />
               <Route path="/admin/edit/:moduleId" element={<ModuleEditor />} />
+              <Route path="/documentation" element={<Documentation />} /> {/* Pindahkan ke sini */}
               {/* Rute utama sekarang adalah login */}
               <Route path="/" element={<Login />} />
             </Route>
@@ -47,7 +48,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/module/:moduleId" element={<ProtectedRoute><ModuleDetail /></ProtectedRoute>} />
             <Route path="/quiz/:moduleId" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
             <Route path="/quiz/result" element={<ProtectedRoute><QuizResult /></ProtectedRoute>} />
-            <Route path="/documentation" element={<ProtectedRoute><Documentation /></ProtectedRoute>} />
             
           </Routes>
         </ModuleProvider>
