@@ -3,27 +3,27 @@ import Flowchart from '../components/Flowchart';
 import { Link } from 'react-router-dom';
 
 function Documentation() {
-  // Definisi flowchart dalam sintaks Mermaid
+  // Definisi flowchart dalam sintaks Mermaid yang sudah diperbaiki
   const flowchartDefinition = `
     graph TD
-      A[Start] --> B(Akses URL);
-      B --> C{Rute Publik?};
-      C -- Ya --> D[Tampil Halaman Publik / Admin];
-      C -- Tidak --> E{Sudah Login?};
-      E -- Ya --> F[Tampil Halaman Dashboard];
-      E -- Tidak --> G[Tampil Halaman Login];
-      F --> H(Pilih Modul);
-      H --> I[Tampil Materi];
-      I --> J(Kerjakan Kuis);
-      J --> K[Tampil Hasil];
-      K --> F;
-      F --> L(Akses Profil);
-      L --> M{Logout?};
-      M -- Ya --> G;
-      M -- Tidak --> F;
-      D --> Z[End];
-      G --> Z;
-      F --> Z[End];
+      subgraph "Alur Pengguna Belum Login"
+        A[Mulai] --> B(Buka Aplikasi);
+        B --> C[/login];
+        C --> D{Input Kredensial};
+        D -- Gagal --> C;
+        D -- Sukses --> E;
+      end
+      
+      subgraph "Alur Pengguna Sudah Login"
+        E[/dashboard] --> F(Pilih Modul);
+        F --> G[/module/id];
+        G --> H(Kerjakan Kuis);
+        H --> I[/quiz/result];
+        I --> E;
+        E --> J(Lihat Profil);
+        J --> K{Logout?};
+        K -- Ya --> C;
+      end
     `;
 
   return (
