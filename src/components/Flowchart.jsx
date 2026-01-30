@@ -1,35 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react';
-import mermaid from 'mermaid/dist/mermaid.min.js';
 
-// Konfigurasi awal untuk Mermaid
-mermaid.initialize({
-  // startOnLoad: true, // Hapus ini
-  theme: 'default',
-  securityLevel: 'loose',
-});
-
+// Komponen ini sekarang mengasumsikan 'mermaid' ada di 'window'
 const Flowchart = ({ chartDefinition }) => {
-  const chartRef = useRef(null); // Ref untuk elemen div target
-  const [error, setError] = useState(null); // State untuk menangani error render
+  const chartRef = useRef(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const renderDiagram = async () => {
-      if (!chartRef.current) return; // Pastikan ref sudah ada
+      if (!chartRef.current) return;
+      
+      // Pastikan mermaid dari CDN sudah dimuat
+      if (!window.mermaid) {
+        setError("Gagal memuat library Mermaid dari CDN.");
+        return;
+      }
+      
+      const mermaidAPI = window.mermaid;
+      mermaidAPI.initialize({
+        theme: 'default',
+        securityLevel: 'loose',
+      });
 
-      console.log("DIAGRAM DEFINITION TO BE RENDERED:", chartDefinition); // LOGGING FOR DEBUGGING
-
-      setError(null); // Reset error
-      chartRef.current.innerHTML = 'Loading diagram...'; // Tampilkan pesan loading
+      setError(null);
+      chartRef.current.innerHTML = 'Loading diagram...';
 
       try {
         const id = `mermaid-diagram-${Math.random().toString(36).substr(2, 9)}`;
-        // mermaid.render() ke elemen div target
-        const { svg: svgCode } = await mermaid.render(id, chartDefinition);
-        chartRef.current.innerHTML = svgCode; // Masukkan SVG ke dalam div
+        const { svg: svgCode } = await mermaidAPI.render(id, chartDefinition);
+        chartRef.current.innerHTML = svgCode;
       } catch (err) {
         console.error('Error rendering mermaid diagram:', err);
-        setError("Gagal merender diagram. Pastikan sintaks Mermaid benar.");
-        chartRef.current.innerHTML = "Gagal merender diagram."; // Tampilkan pesan error di UI
+        setError("Gagal merender diagram. Periksa sintaks.");
+        chartRef.current.innerHTML = "Gagal merender diagram.";
       }
     };
 
@@ -42,7 +44,7 @@ const Flowchart = ({ chartDefinition }) => {
     return <div style={{ color: 'red' }}>{error}</div>;
   }
 
-  return <div ref={chartRef}>Loading diagram...</div>; // Render ke div dengan ref
+  return <div ref={chartRef}>Memuat library diagram...</div>;
 };
 
 export default Flowchart;
