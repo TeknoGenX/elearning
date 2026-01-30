@@ -20,9 +20,9 @@ import Profile from './pages/Profile.jsx';
 import ModuleDetail from './pages/ModuleDetail.jsx';
 import Quiz from './pages/Quiz.jsx';
 import QuizResult from './pages/QuizResult.jsx';
-import AdminDashboard from './pages/AdminDashboard.jsx'; // ADDED
+import AdminDashboard from './pages/AdminDashboard.jsx';
 import ModuleEditor from './pages/ModuleEditor.jsx';
-import Documentation from './pages/Documentation.jsx'; // ADDED
+import Documentation from './pages/Documentation.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -38,7 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/create" element={<ModuleEditor />} />
               <Route path="/admin/edit/:moduleId" element={<ModuleEditor />} />
-              <Route path="/documentation" element={<Documentation />} /> {/* Pindahkan ke sini */}
+              <Route path="/documentation" element={<Documentation />} />
               {/* Rute utama sekarang adalah login */}
               <Route path="/" element={<Login />} />
             </Route>
