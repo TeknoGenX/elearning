@@ -1,0 +1,95 @@
+.container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 15px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.welcomeBanner {
+  margin-bottom: 40px;
+  background-color: #e9f7ef;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.welcomeBanner h2 {
+  margin-top: 0;
+  color: #155724;
+}
+
+.welcomeBanner p {
+  color: #155724;
+}
+
+.progressBarContainer {
+  width: 100%;
+  background-color: #ced4da;
+  border-radius: 5px;
+  height: 10px;
+  margin-top: 15px;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.moduleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.moduleCard {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  border-left: 5px solid #007bff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.moduleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.moduleCardCompleted {
+  border-left-color: #28a745;
+}
+
+.moduleCardInProgress {
+  border-left-color: #ffc107;
+}
+
+.moduleIcon {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.moduleInfo {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 10px;
+}
+
+.moduleInfo span {
+  font-weight: bold;
+}
